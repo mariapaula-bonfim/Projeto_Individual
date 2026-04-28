@@ -1,0 +1,100 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: url("img/fundo.avif");
+    background-size: cover;
+    color: white;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background: black;
+}
+
+.logo {
+      height: 5%;
+      width: 5%;
+}
+
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.login {
+    background-color: rgba(#4da6ff, 0, 0, 0.5);
+    border: 2px solid #4da6ff;
+    padding: 10px 20px;
+    color: #4da6ff;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.banner {
+    height: 400px;
+    background: url("img/topo.png") center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    padding-left: 50px;
+}
+
+.banner-text h1 {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.banner-text p {
+    font-size: 18px;
+}
+
+.cards {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 60px;
+}
+
+.card {
+    position: relative;
+    width: 300px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.card img {
+    width: 100%;
+    display: block;
+}
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    background: rgba(0,0,0,0.7);
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+}
+
+.overlay h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.overlay button {
+    background: #ff4d4d;
+    border: none;
+    padding: 10px 15px;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
