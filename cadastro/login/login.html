@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+
+<h2>Login</h2>
+
+Email: <input id="emailLogin"><br><br>
+Senha: <input type="password" id="senhaLogin"><br><br>
+
+<button onclick="logar()">Entrar</button><br><br>
+
+Não tem uma conta? <a href="cadastro.html">Crie a sua conta</a>
+
+<p id="div_msg"></p>
+
+</body>
+</html>
+
+<script>
+let emails = ["admin@sptech.com"];
+let senhas = ["123"];
+
+function logar() {
+    let email = emailLogin.value;
+    let senha = senhaLogin.value;
+
+    let achou = false;
+
+    for (let i = 0; i < emails.length; i++) {
+        if (email == emails[i] && senha == senhas[i]) {
+            achou = true;
+        }
+    }
+
+    if (achou) {
+        alert('Login OK!');
+    } else {
+        alert('Usuário ou senha incorretos!');
+    }
+}
+</script>

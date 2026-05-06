@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+</head>
+<body>
+
+<h2>Cadastro</h2>
+
+Nome: <input id="ipt_nome"><br><br>
+Data de nascimento: <input type="number" id="ipt_dtNascimento"><br><br>
+Email: <input id="ipt_email"><br><br>
+Senha: <input type="password" id="ipt_senha"><br><br>
+
+<button onclick="cadastrar()">Cadastrar</button>
+
+<div id="div_msg"></div>
+
+</body>
+</html>
+
+<script>
+
+let nomes = [];
+let dtNascimentos = [];
+let emails = [];
+let senhas = [];
+
+function cadastrar() {
+    let nome = ipt_nome.value;
+    let dtNascimento = Number(ipt_dtNascimento.value);
+    let email = ipt_email.value;
+    let senha = ipt_senha.value;
+
+    if (nome == "" || dtNascimento == "" || email == "" || senha == "") {
+        alert('Preencha todos os campos!')
+    } else {
+        nomes.push(nome);
+        dtNascimentos.push(dtNascimento);
+        emails.push(email);
+        senhas.push(senha);
+
+        alert('Cadastro realizado!')
+    }
+}
+</script>
