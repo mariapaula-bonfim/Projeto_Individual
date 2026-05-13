@@ -1,60 +1,138 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Star Wars</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header>
-        <img class="logo" src="img/LogoSW.webp">
+    <header class="header">
+        <div class="logo">
+            <img src="img/img-prototipo/logo/logo preta.png" alt="Logo Star Wars">
+        </div>
 
-        <nav>
+        <nav class="menu">
+            <a href="#">FRANQUIA</a>
             <a href="#">PERSONAGENS</a>
-            <a href="#">NAVES</a>
-            <a href="#">FACÇÕES</a>
-            <a href="#">PLANETAS</a>
-            <a href="#">SABRE DE LUZ</a>
+            <a href="#">NAVES E EQUIPAMENTOS</a>
+            <a href="#">SOBRE</a>
         </nav>
 
-        <a href="cadastro/login/login.html"><button class="login">LOGIN</button></a>
+        <a href="cadastro/login/login.html"><button class="btn-login">LOGIN</button></a>
     </header>
 
-    <section class="banner">
-        <div class="banner-text">
-            <h1>EXPLORE UMA GALÁXIA<br>MUITO, MUITO DISTANTE...</h1>
-            <p>BEM-VINDO JOVEM PADAWAN</p>
+    <section class="historia">
+
+    <!-- IMAGEM TOPO -->
+
+    <div class="banner">
+        <img src="img/fundo dv.jpg" alt="Darth Vader">
+    </div>
+
+    <!-- CONTEÚDO -->
+
+    <div class="conteudo-historia">
+
+        <h1>
+            Conheça a história da galáxia muito, muito distante ...
+        </h1>
+
+        <div class="historia-box">
+
+            <!-- IMAGEM -->
+
+            <div class="historia-img">
+                <img src="img/intro.jpeg" alt="">
+            </div>
+
+            <!-- TEXTO -->
+
+            <div class="historia-texto">
+
+                <p>
+                    Star Wars é uma das franquias mais influentes da história do
+                    entretenimento, criada por George Lucas em 1977. A saga
+                    apresenta uma galáxia repleta de conflitos entre o bem e o
+                    mal, envolvendo a Ordem Jedi, os Sith, a República Galáctica
+                    e o Império. <br>
+                    Misturando ficção científica, fantasia, política e aventura,
+                    Star Wars conquistou milhões de fãs ao redor do mundo através
+                    de filmes, séries, livros, jogos e animações. Além de
+                    revolucionar os efeitos especiais no cinema, a franquia se
+                    tornou um verdadeiro fenômeno cultural.
+                </p>
+
+            </div>
+
         </div>
-    </section>
 
-    <section class="cards">
+        </div>
 
-        <div class="card">
-            <img src="img/capa.jpg">
-            <div class="overlay">
-                <h3>CONHEÇA OS FILMES DE STAR WARS</h3>
-                <button>SAIBA MAIS</button>
+        <div class="container">
+            <div class="enredo">
+
+                <div class="titulo-enredo">
+                    <div class="topico-enredo">ENREDO</div>
+                    <h1>Conheça um pouco do universo de STAR WARS:</h1>
+                </div>
+
+                <div class="linha-conteudo">
+                    <div class="texto-enredo">
+                        <p>Star Wars se passa em uma galáxia muito distante, onde diferentes planetas, espécies e civilizações coexistem sob a influência da Força, uma energia mística capaz de conectar todos os seres vivos. Durante muitos anos, a galáxia viveu sob a proteção da República Galáctica e da Ordem Jedi, guerreiros que utilizavam o lado luminoso da Força para manter a paz e a justiça.</p>
+                    </div>
+                    <div class="imagem-enredo">
+                        <img src="img/img-prototipo/img-enredo/parte 1.jpeg" alt="República Galáctica">
+                    </div>
+                </div>
+
+                <div class="linha-conteudo reverso">
+                    <div class="texto-enredo">
+                        <p>Com o passar do tempo, uma ameaça começou a crescer nas sombras: os Sith, usuários do lado sombrio da Força movidos pela ambição e pelo desejo de poder. Secretamente liderados por Palpatine, os Sith manipularam conflitos políticos e iniciaram as Guerras Clônicas, uma grande guerra entre a República e os Separatistas que enfraqueceu a galáxia.</p>
+                    </div>
+                    <div class="imagem-enredo">
+                        <img src="img/img-prototipo/img-enredo/parte 2.jpeg" alt="Guerras Clónicas">
+                    </div>
+                </div>
+
+                <div class="linha-conteudo">
+                    <div class="texto-enredo">
+                        <p>No meio desse conflito surgiu Anakin Skywalker, um jovem Jedi considerado o escolhido para trazer equilíbrio à Força. Porém, o medo de perder as pessoas que amava fez com que Anakin fosse manipulado por Palpatine, levando-o a abandonar os Jedi e se transformar em Darth Vader. Sua queda marcou o fim da Ordem Jedi e o início do domínio do Império Galáctico.</p>
+                    </div>
+                    <div class="imagem-enredo">
+                        <img src="img/img-prototipo/img-enredo/parte 3.jpeg" alt="Darth Vader">
+                    </div>
+                </div>
+
+                <div class="linha-conteudo reverso">
+                    <div class="texto-enredo">
+                        <p>Com a ascensão do Império, a galáxia passou a viver sob um regime autoritário comandado pelo Imperador. Planetas foram dominados, opositores perseguidos e armas destrutivas como a Estrela da Morte passaram a representar o poder imperial. Mesmo diante desse cenário, surgiu a Aliança Rebelde, um grupo de resistência formado por heróis como Leia Organa, Han Solo e Luke Skywalker.</p>
+                    </div>
+                    <div class="imagem-enredo">
+                        <img src="img/img-prototipo/img-enredo/parte 4.jpeg" alt="Império Galáctico">
+                    </div>
+                </div>
+
+                <div class="linha-conteudo">
+                    <div class="texto-enredo">
+                        <p>Treinado nos caminhos da Força, Luke se tornou a esperança da galáxia ao enfrentar Darth Vader e o Imperador. Durante o confronto final, Vader percebeu os erros que havia cometido e decidiu destruir Palpatine para salvar seu filho, trazendo novamente equilíbrio à Força e contribuindo para a queda do Império Galáctico.</p>
+                    </div>
+                    <div class="imagem-enredo">
+                        <img src="img/img-prototipo/img-enredo/parte 5.jpeg" alt="Aliança Rebelde">
+                    </div>
+                </div>
+
+                <div class="linha-conteudo reverso">
+                    <div class="texto-enredo">
+                        <p>Anos depois, os remanescentes do Império deram origem à Primeira Ordem, uma organização militar que buscava recuperar o controle da galáxia. Em resposta, surgiu a Resistência, continuando o legado da antiga Rebelião. Nesse período, uma nova heroína chamada Rey descobriu sua conexão com a Força e enfrentou o avanço do lado sombrio ao lado de aliados da Resistência.</p>
+                    </div>
+                    <div class="imagem-enredo">
+                        <img src="img/img-prototipo/img-enredo/parte 6.jpeg" alt="A Resistência">
+                    </div>
+                </div>
             </div>
         </div>
-
-        <div class="card">
-            <img src="img/The_Mandalorian_poster2.jpg">
-            <div class="overlay">
-                <h3>CONHEÇA AS SÉRIES DE STAR WARS</h3>
-                <button>SAIBA MAIS</button>
-            </div>
-        </div>
-
-        <div class="card">
-            <img src="img/poster-clone-wars2.jpg">
-            <div class="overlay">
-                <h3>CONHEÇA AS ANIMAÇÕES DE STAR WARS</h3>
-                <button>SAIBA MAIS</button>
-            </div>
-        </div>
-
-    </section>
 
 </body>
 </html>
