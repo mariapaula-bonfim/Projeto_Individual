@@ -1,0 +1,133 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: black;
+    overflow-x: hidden;
+}
+
+.comunidade{
+    width: 100%;
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 40px;
+}
+
+.overlay{
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.75);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.conteudo-comunidade{
+    width: 100%;
+    max-width: 1200px;
+    position: relative;
+    z-index: 2;
+    color: white;
+}
+
+.titulo-comunidade{
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.topico-comunidade{
+    color: #ffcc00;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+
+.topico-comunidade::before,
+.topico-comunidade::after{
+    content: "";
+    width: 40px;
+    height: 2px;
+    background-color: #ffcc00;
+    margin: 0 15px;
+}
+
+.titulo-comunidade h1{
+    font-size: 55px;
+    margin-bottom: 25px;
+    line-height: 1.2;
+}
+
+.titulo-comunidade p{
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 20px;
+    line-height: 1.6;
+    color: #d1d1d1;
+}
+
+.cards-comunidade{
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.card-comunidade{
+    width: 420px;
+    background-color: rgba(20,20,20,0.95);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 10px;
+    padding: 45px 35px;
+    transition: 0.4s ease;
+}
+
+.card-comunidade:hover{
+    transform: translateY(-10px);
+    border-color: #ffcc00;
+    box-shadow: 0 0 25px rgba(255, 204, 0, 0.2);
+}
+
+.icone-card{
+    font-size: 50px;
+    margin-bottom: 25px;
+}
+
+.card-comunidade h2{
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.card-comunidade p{
+    color: #cfcfcf;
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 35px;
+}
+
+.card-comunidade a{
+    display: inline-block;
+    background-color: #ffcc00;
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 15px 28px;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+.card-comunidade a:hover{
+    background-color: white;
+}

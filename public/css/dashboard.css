@@ -1,0 +1,251 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    background-color: #050505;
+
+    display: flex;
+
+    color: white;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+    width: 260px;
+    height: 100vh;
+
+    background-color: #0d0d0d;
+
+    border-right: 1px solid #1f1f1f;
+
+    padding: 40px 25px;
+
+    position: fixed;
+    left: 0;
+    top: 0;
+}
+
+/* LOGO */
+
+.logo-sidebar{
+    display: flex;
+    justify-content: center;
+
+    margin-bottom: 60px;
+}
+
+.logo-sidebar img{
+    width: 140px;
+}
+
+/* MENU */
+
+.menu-sidebar{
+    display: flex;
+    flex-direction: column;
+
+    gap: 18px;
+}
+
+.menu-sidebar a{
+    color: #d1d1d1;
+
+    text-decoration: none;
+
+    padding: 14px 18px;
+
+    border-radius: 8px;
+
+    transition: 0.3s;
+}
+
+.menu-sidebar a:hover{
+    background-color: rgba(255, 204, 0, 0.1);
+
+    color: #ffcc00;
+
+    transform: translateX(5px);
+}
+
+/* DASHBOARD */
+
+.dashboard{
+    margin-left: 260px;
+
+    width: calc(100% - 260px);
+
+    padding: 50px;
+}
+
+/* TOPO */
+
+.topo-dashboard{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 50px;
+}
+
+.topo-dashboard h1{
+    font-size: 42px;
+
+    margin-bottom: 10px;
+}
+
+.topo-dashboard p{
+    color: #bdbdbd;
+
+    font-size: 18px;
+}
+
+/* USUÁRIO */
+
+.usuario-dashboard{
+    background-color: #111;
+
+    padding: 15px 22px;
+
+    border-radius: 10px;
+
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+/* CARDS */
+
+.cards-dashboard{
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+    gap: 25px;
+
+    margin-bottom: 50px;
+}
+
+/* CARD */
+
+.card-dashboard{
+    background-color: #111;
+
+    padding: 30px;
+
+    border-radius: 12px;
+
+    border: 1px solid rgba(255,255,255,0.05);
+
+    transition: 0.4s;
+}
+
+.card-dashboard:hover{
+    transform: translateY(-8px);
+
+    border-color: #ffcc00;
+
+    box-shadow: 0 0 20px rgba(255, 204, 0, 0.12);
+}
+
+.card-dashboard h2{
+    color: #d1d1d1;
+
+    font-size: 18px;
+
+    margin-bottom: 20px;
+}
+
+.card-dashboard span{
+    font-size: 42px;
+
+    font-weight: bold;
+
+    color: #ffcc00;
+}
+
+/* GRÁFICOS */
+
+.graficos-dashboard{
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 25px;
+
+    margin-bottom: 50px;
+}
+
+.grafico-box{
+    background-color: #111;
+
+    border-radius: 12px;
+
+    padding: 30px;
+
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.grafico-box h2{
+    margin-bottom: 25px;
+}
+
+/* FAKE GRÁFICO */
+
+.grafico-fake{
+    width: 100%;
+    height: 300px;
+
+    border-radius: 10px;
+
+    background: linear-gradient(
+        135deg,
+        rgba(255,204,0,0.15),
+        rgba(255,255,255,0.03)
+    );
+
+    border: 1px dashed rgba(255,204,0,0.4);
+}
+
+/* TABELA */
+
+.atividade-recente{
+    background-color: #111;
+
+    border-radius: 12px;
+
+    padding: 30px;
+
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.atividade-recente h2{
+    margin-bottom: 25px;
+}
+
+/* TABLE */
+
+table{
+    width: 100%;
+
+    border-collapse: collapse;
+}
+
+th{
+    text-align: left;
+
+    padding-bottom: 20px;
+
+    color: #ffcc00;
+}
+
+td{
+    padding: 18px 0;
+
+    border-top: 1px solid rgba(255,255,255,0.05);
+
+    color: #d1d1d1;
+}

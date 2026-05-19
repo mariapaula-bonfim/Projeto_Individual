@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Questionário Star Wars</title>
+
+    <link rel="stylesheet" href="css/questionario.css">
+</head>
+
+<body>
+
+    <div class="questionario">
+
+        <div class="overlay"></div>
+
+        <div class="container-questionario">
+
+            <div class="titulo-questionario">
+
+                <div class="topico-questionario">QUESTIONÁRIO</div>
+
+                <h1>Compartilhe suas preferências sobre STAR WARS</h1>
+
+                <p>
+                    Responda às perguntas abaixo e descubra como suas opiniões
+                    se comparam às da comunidade galáctica.
+                </p>
+
+            </div>
+
+            <form class="form-questionario">
+
+                <!-- PERGUNTA 1 -->
+
+                <div class="grupo-formulario">
+
+                    <label>Qual é sua facção favorita?</label>
+
+                    <select id="select_faccao">
+                        <option>Selecione uma opção</option>
+                        <option>Jedi</option>
+                        <option>Sith</option>
+                        <option>Império Galáctico</option>
+                        <option>Aliança Rebelde</option>
+                        <option>Mandalorianos</option>
+                        <option>Primeira Ordem</option>
+                    </select>
+
+                </div>
+
+                <!-- PERGUNTA 2 -->
+
+                <div class="grupo-formulario">
+
+                    <label>Quem é seu personagem favorito?</label>
+
+                    <select id="select_personagem">
+                        <option>Selecione uma opção</option>
+                        <option>Luke Skywalker</option>
+                        <option>Darth Vader</option>
+                        <option>Obi-Wan Kenobi</option>
+                        <option>Ahsoka Tano</option>
+                        <option>Yoda</option>
+                        <option>Anakin Skywalker</option>
+                        <option>Leia Organa</option>
+                        <option>Han Solo</option>
+                    </select>
+
+                </div>
+
+                <!-- PERGUNTA 3 -->
+
+                <div class="grupo-formulario">
+
+                    <label>Qual é sua trilogia favorita?</label>
+
+                    <select id="select_trilogia">
+                        <option>Selecione uma opção</option>
+                        <option>Trilogia Clássica</option>
+                        <option>Prequels</option>
+                        <option>Sequels</option>
+                    </select>
+
+                </div>
+
+                <!-- PERGUNTA 4 -->
+
+                <div class="grupo-formulario">
+
+                    <label>Qual é seu filme favorito?</label>
+
+                    <select id="select_filme">
+                        <option>Selecione uma opção</option>
+                        <option>A Vingança dos Sith</option>
+                        <option>O Império Contra-Ataca</option>
+                        <option>Uma Nova Esperança</option>
+                        <option>O Retorno de Jedi</option>
+                        <option>Rogue One</option>
+                        <option>O Despertar da Força</option>
+                    </select>
+
+                </div>
+
+                <!-- PERGUNTA 5 -->
+
+                <div class="grupo-formulario">
+
+                    <label>Quantos filmes/séries de Star Wars você já assistiu?</label>
+
+                    <input type="number" id="ipt_quantidade" placeholder="Digite uma quantidade">
+
+                </div>
+
+                <!-- PERGUNTA 6 -->
+
+                <div class="grupo-formulario">
+
+                    <label>Você prefere:</label>
+
+                    <div class="radio-group">
+
+                        <label>
+                            <input type="radio" name="lado">
+                            Lado luminoso
+                        </label>
+
+                        <label>
+                            <input type="radio" name="lado">
+                            Lado sombrio
+                        </label>
+
+                    </div>
+
+                </div>
+
+                <!-- PERGUNTA 7 -->
+
+                <div class="grupo-formulario">
+
+                    <label>Qual elemento você mais gosta em Star Wars?</label>
+
+                    <select id="select_elemento">
+                        <option>Selecione uma opção</option>
+                        <option>Batalhas espaciais</option>
+                        <option>Sabres de luz</option>
+                        <option>História política</option>
+                        <option>A Força</option>
+                        <option>Personagens</option>
+                        <option>Planetas</option>
+                    </select>
+
+                </div>
+
+                <button type="button" onclick="responder()">Enviar resposta</button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
+
+<script>
+
+    function responder() {
+
+    var faccaoVar = select_faccao.value;
+    var personagemVar = select_personagem.value;
+    var trilogiaVar = select_trilogia.value;
+    var filmeVar = select_filme.value;
+    var quantidadeVar = ipt_quantidade.value;
+
+    var idUsuarioVar = sessionStorage.ID_USUARIO;
+
+    fetch("/questionario/cadastrar", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            faccaoServer: faccaoVar,
+            personagemServer: personagemVar,
+            trilogiaServer: trilogiaVar,
+            filmeServer: filmeVar,
+            quantidadeServer: quantidadeVar,
+            idUsuarioServer: idUsuarioVar
+        })
+    })
+    .then(function(resposta){
+
+        if(resposta.ok){
+
+            alert("Pesquisa enviada com sucesso!");
+            window.location = "dashboard.html";
+        } else {
+            alert("Erro ao enviar pesquisa");
+        }
+
+    })
+
+    .catch(function(erro){
+        console.log(erro);
+    });
+
+}
+</script>

@@ -1,0 +1,249 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    background-color: white;
+    margin: 0;
+}
+
+/* HEADER */
+
+.header{
+    width: 100%;
+    height: 60px;
+
+    background: linear-gradient(
+        90deg,
+        #050505,
+        #0b0b0b,
+        #050505
+    );
+
+    border: 1px solid #1f1f1f;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 40px;
+}
+
+/* LOGO */
+
+.logo{
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+}
+
+.logo img{
+    height: 42px;
+    width: auto;
+
+    display: block;
+}
+
+/* MENU */
+
+.menu{
+    display: flex;
+    align-items: center;
+    gap: 45px;
+}
+
+.menu a{
+    color: white;
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    transition: 0.3s;
+}
+
+.menu a:hover{
+    color: #f0c94d;
+}
+
+/* BOTÃO */
+
+.btn-login{
+    width: 85px;
+    height: 35px;
+
+    background-color: #f0c94d;
+
+    border: none;
+    border-radius: 10px;
+
+    color: black;
+    font-size: 13px;
+    font-weight: bold;
+
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-login:hover{
+    transform: scale(1.05);
+}
+
+
+/* SECTION */
+
+.franquia{
+    width: 100%;
+    background-color: #050505;
+    padding: 80px 70px;
+    color: white;
+}
+
+/* TÍTULO */
+
+.titulo-franquia{
+    margin-bottom: 60px;
+}
+
+.topico-franquia{
+    color: #ffcc00;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.topico-franquia::before{
+    content: "";
+    width: 40px;
+    height: 2px;
+    background-color: #ffcc00;
+    margin-right: 15px;
+}
+
+.titulo-franquia h1,
+.categoria-franquia h1{
+    font-size: 35px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 40px;
+}
+
+/* CATEGORIAS */
+
+.categoria-franquia{
+    margin-top: 100px;
+}
+
+/* GRID */
+
+.grid-franquia{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 45px;
+}
+
+/* CARD */
+
+/* .card-franquia{
+    transition: 0.3s;
+    margin-top: 40px;
+}
+
+.card-franquia:hover{
+    transform: translateY(-8px);
+} */
+
+.card-franquia{
+    transition: 0.4s ease;
+    margin-top: 40px;
+    padding: 10px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+}
+
+.card-franquia:hover{
+    transform: translateY(-8px);
+
+    border-color: #ffcc00;
+
+    box-shadow: 0 0 20px rgba(255, 204, 0, 0.18);
+}
+
+/* .card-franquia img{
+    width: 100%;
+    height: 270px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 15px;
+} */
+
+.card-franquia img{
+    width: 100%;
+    height: 270px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    transition: 0.4s;
+}
+
+.card-franquia:hover img{
+    transform: scale(1.03);
+}
+
+/* TEXTOS */
+
+.card-franquia h3{
+    font-size: 16px;
+    margin-bottom: 8px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.card-franquia p{
+    color: #d1d1d1;
+    font-size: 14px;
+    margin-bottom: 8px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.card-franquia span{
+    color: #ffcc00;
+    font-size: 15px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.footer{
+    width: 100%;
+    background-color: #000;
+}
+
+/* ===== CONTAINER ===== */
+
+.footer-container{
+    width: 100%;
+    height: 100px;
+
+    background: linear-gradient(to right, #1f1f1f, #2a2a2a);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ===== TEXTO ===== */
+
+.footer-container h1{
+    color: white;
+
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+
+    letter-spacing: 2px;
+}

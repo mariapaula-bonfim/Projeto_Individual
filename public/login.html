@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela de Login</title>
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+    <a href="index.html"><button class="btn-voltar">← Voltar</button></a>
+    
+    <div class="login-container">
+        <div class="logo">
+            <img src="assets/img/logo/Star Wars-Logo Branca.png" alt="">
+        </div>
+
+        <h2>Acessar Sistema</h2>
+
+        <div id="formLogin">
+            <div class="form-group">
+                E-mail
+                <input id="ipt_email" placeholder="seuemail@exemplo.com">
+            </div>
+
+            <div class="form-group">
+                Senha
+                <input id="ipt_senha" placeholder="Digite sua senha">
+            </div>
+
+            <button class="botao-entrar" onclick="entrar()">ENTRAR</button><br><br>
+
+            Não possui uma conta? <br> Entre para o universo de  <a href="cadastro.html">STAR WARS</a> 
+        </div>
+        <div id="div_msg"></div>
+    </div>
+</body>
+</html>
+
+<script>
+    function entrar() {
+
+        var emailVar = ipt_email.value;
+        var senhaVar = ipt_senha.value;
+
+        if (emailVar == "" || senhaVar == "") {
+            div_msg.innerHTML = "Preencha todos os campos.";
+            return false;
+        }
+        else {
+            setInterval(sumirMensagem, 5000)
+        }
+
+        console.log("FORM LOGIN: ", emailVar);
+        console.log("FORM SENHA: ", senhaVar);
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.id_usuario
+
+                    setTimeout(function () {
+                        window.location = "./comunidade.html";
+                    }, 1000);
+
+                });
+            
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    finalizarAguardar(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+
+    function sumirMensagem() {
+        cardErro.style.display = "none"
+    }
+
+</script>
