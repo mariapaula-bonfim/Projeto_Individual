@@ -129,13 +129,12 @@
 
     </div>
 
-</body>
 
 
-<<script>
+<script>
 
-    var graficoFaccoes;
-    var graficoTrilogias;
+    var chartFaccoes;
+    var chartTrilogias;
 
     function atualizarDashboard() {
 
@@ -262,13 +261,13 @@
 
                     }
 
-                    if (graficoFaccoes) {
+                    if (chartFaccoes) {
 
-                        graficoFaccoes.destroy();
+                        chartFaccoes.destroy();
 
                     }
 
-                    graficoFaccoes = new Chart(graficoFaccoesCanvas, {
+                    chartFaccoes = new Chart(graficoFaccoes, {
 
                         type: 'bar',
 
@@ -349,13 +348,13 @@
 
                     }
 
-                    if (graficoTrilogias) {
+                    if (chartTrilogias) {
 
-                        graficoTrilogias.destroy();
+                        chartTrilogias.destroy();
 
                     }
 
-                    graficoTrilogias = new Chart(graficoTrilogiasCanvas, {
+                    chartTrilogias = new Chart(graficoTrilogias, {
 
                         type: 'pie',
 
