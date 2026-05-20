@@ -14,11 +14,13 @@ var app = express();
 
 var usuarioRouter = require("./src/routes/usuarios");
 var questionarioRouter = require("./src/routes/questionario");
+var dashboardRouter = require('./routes/dashboard');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
 app.use("/questionario", questionarioRouter);
+app.use("/dashboard", dashboardRouter);
 
 app.use(cors());
 

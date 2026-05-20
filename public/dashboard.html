@@ -1,125 +1,93 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard | Star Wars</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <link rel="stylesheet" href="css/dashboard.css">
+
+    <title>Dashboard</title>
 </head>
-<body>
+
+<body onload="atualizarDashboard()">
 
     <!-- SIDEBAR -->
 
-    <aside class="sidebar">
+    <div class="sidebar">
 
         <div class="logo-sidebar">
-            <img src="img/logo-starwars.png" alt="">
+            <img src="assets/img/logo/logo preta.png">
         </div>
 
-        <nav class="menu-sidebar">
+        <div class="menu-sidebar">
 
-            <a href="dashboard.html">
-                DASHBOARD
-            </a>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="comunidade.html">Comunidade</a>
+            <a href="questionario.html">Questionário</a>
+            <a href="index.html">Sair</a>
 
-            <a href="comunidade.html">
-                COMUNIDADE
-            </a>
-
-            <a href="questionario.html">
-                QUESTIONÁRIO
-            </a>
-
-            <a href="index.html">
-                SAIR
-            </a>
-
-        </nav>
-
-    </aside>
-<!-- 
-    <header class="header">
-        <div class="logo">
-            <img src="assets/img/logo/logo preta.png" alt="Logo Star Wars">
         </div>
 
-        <nav class="menu">
-            <a href="dashboard.html">DASHBOARD</a>
-            <a href="comunidade.html">COMUNIDADE</a>
-            <a href="questionario.html">QUESTIONÁRIO</a>
-            <a href="index.html">SAIR</a>
-        </nav>
-    </header> -->
+    </div>
 
-    <!-- CONTEÚDO -->
+    <!-- DASHBOARD -->
 
-    <main class="dashboard">
+    <div class="dashboard">
 
-        <!-- HEADER -->
+        <!-- TOPO -->
 
-        <header class="topo-dashboard">
+        <div class="topo-dashboard">
 
             <div>
-                <h1>Dashboard da Comunidade</h1>
-                <p>
-                    Veja as preferências da comunidade STAR WARS
-                </p>
+                <h1>Dashboard Star Wars</h1>
+
+                <p>Análise da comunidade galáctica</p>
             </div>
 
-            <div class="usuario-dashboard">
-                <span>Olá, usuário</span>
-            </div>
+        </div>
 
-        </header>
+        <!-- KPIs -->
 
-        <!-- CARDS -->
-
-        <section class="cards-dashboard">
+        <div class="cards-dashboard">
 
             <div class="card-dashboard">
+                <h3>Total de Usuários</h3>
 
-                <h2>Total de Usuários</h2>
-
-                <span>120</span>
-
+                <span id="kpi_totalUsuarios">0</span>
             </div>
 
             <div class="card-dashboard">
+                <h3>Facção Mais Popular</h3>
 
-                <h2>Facção Mais Popular</h2>
-
-                <span>Jedi</span>
-
+                <span id="kpi_faccao">-</span>
             </div>
 
             <div class="card-dashboard">
+                <h3>Personagem Favorito</h3>
 
-                <h2>Personagem Favorito</h2>
-
-                <span>Darth Vader</span>
-
+                <span id="kpi_personagem">-</span>
             </div>
 
             <div class="card-dashboard">
+                <h3>Filme Mais Votado</h3>
 
-                <h2>Filme Mais Votado</h2>
-
-                <span>Império Contra-Ataca</span>
-
+                <span id="kpi_filme">-</span>
             </div>
 
-        </section>
+        </div>
 
         <!-- GRÁFICOS -->
 
-        <section class="graficos-dashboard">
+        <div class="graficos-dashboard">
 
             <div class="grafico-box">
 
                 <h2>Facções Favoritas</h2>
 
-                <div class="grafico-fake"></div>
+                <canvas id="graficoFaccoes"></canvas>
 
             </div>
 
@@ -127,17 +95,17 @@
 
                 <h2>Trilogias Favoritas</h2>
 
-                <div class="grafico-fake"></div>
+                <canvas id="graficoTrilogias"></canvas>
 
             </div>
 
-        </section>
+        </div>
 
         <!-- TABELA -->
 
-        <section class="atividade-recente">
+        <div class="atividade-recente">
 
-            <h2>Últimas respostas</h2>
+            <h2>Últimos 3 acessos</h2>
 
             <table>
 
@@ -152,36 +120,322 @@
 
                 </thead>
 
-                <tbody>
-
-                    <tr>
-                        <td>Maria</td>
-                        <td>Jedi</td>
-                        <td>Luke Skywalker</td>
-                        <td>Império Contra-Ataca</td>
-                    </tr>
-
-                    <tr>
-                        <td>Pedro</td>
-                        <td>Sith</td>
-                        <td>Darth Vader</td>
-                        <td>A Vingança dos Sith</td>
-                    </tr>
-
-                    <tr>
-                        <td>Ana</td>
-                        <td>Rebeldes</td>
-                        <td>Leia Organa</td>
-                        <td>Uma Nova Esperança</td>
-                    </tr>
+                <tbody id="tbody_ultimos">
 
                 </tbody>
 
             </table>
 
-        </section>
+        </div>
 
-    </main>
+    </div>
+
+</body>
+
+
+<<script>
+
+    var graficoFaccoes;
+    var graficoTrilogias;
+
+    function atualizarDashboard() {
+
+        buscarTotalUsuarios();
+
+        buscarFaccaoPopular();
+
+        buscarPersonagemFavorito();
+
+        buscarFilmeFavorito();
+
+        buscarGraficoFaccoes();
+
+        buscarGraficoTrilogias();
+
+        buscarUltimosAcessos();
+
+        setInterval(() => {
+
+            buscarTotalUsuarios();
+
+            buscarFaccaoPopular();
+
+            buscarPersonagemFavorito();
+
+            buscarFilmeFavorito();
+
+            buscarUltimosAcessos();
+
+        }, 5000);
+
+    }
+
+    /* =========================
+        KPIs
+    ========================= */
+
+    function buscarTotalUsuarios() {
+
+        fetch("/dashboard/totalUsuarios")
+            .then(function (resposta) {
+
+                resposta.json().then(function (dados) {
+
+                    kpi_totalUsuarios.innerHTML = dados[0].total;
+
+                });
+
+            });
+
+    }
+
+    function buscarFaccaoPopular() {
+
+        fetch("/dashboard/faccaoPopular")
+            .then(function (resposta) {
+
+                resposta.json().then(function (dados) {
+
+                    kpi_faccao.innerHTML =
+                        dados[0].faccao_favorita;
+
+                });
+
+            });
+
+    }
+
+    function buscarPersonagemFavorito() {
+
+        fetch("/dashboard/personagemFavorito")
+            .then(function (resposta) {
+
+                resposta.json().then(function (dados) {
+
+                    kpi_personagem.innerHTML =
+                        dados[0].nome;
+
+                });
+
+            });
+
+    }
+
+    function buscarFilmeFavorito() {
+
+        fetch("/dashboard/filmeFavorito")
+            .then(function (resposta) {
+
+                resposta.json().then(function (dados) {
+
+                    kpi_filme.innerHTML =
+                        dados[0].filme_favorito;
+
+                });
+
+            });
+
+    }
+
+    /* =========================
+        GRÁFICO FACÇÕES
+    ========================= */
+
+    function buscarGraficoFaccoes() {
+
+        fetch("/dashboard/graficoFaccoes")
+            .then(function (resposta) {
+
+                resposta.json().then(function (dados) {
+
+                    var labels = [];
+                    var valores = [];
+
+                    for (var i = 0; i < dados.length; i++) {
+
+                        labels.push(
+                            dados[i].faccao_favorita
+                        );
+
+                        valores.push(
+                            dados[i].votos
+                        );
+
+                    }
+
+                    if (graficoFaccoes) {
+
+                        graficoFaccoes.destroy();
+
+                    }
+
+                    graficoFaccoes = new Chart(graficoFaccoesCanvas, {
+
+                        type: 'bar',
+
+                        data: {
+
+                            labels: labels,
+
+                            datasets: [{
+                                label: 'Quantidade de votos',
+                                data: valores
+                            }]
+
+                        },
+
+                        options: {
+
+                            responsive: true,
+
+                            plugins: {
+
+                                legend: {
+                                    labels: {
+                                        color: 'white'
+                                    }
+                                }
+
+                            },
+
+                            scales: {
+
+                                y: {
+                                    ticks: {
+                                        color: 'white'
+                                    }
+                                },
+
+                                x: {
+                                    ticks: {
+                                        color: 'white'
+                                    }
+                                }
+
+                            }
+
+                        }
+
+                    });
+
+                });
+
+            });
+
+    }
+
+    /* =========================
+        GRÁFICO TRILOGIAS
+    ========================= */
+
+    function buscarGraficoTrilogias() {
+
+        fetch("/dashboard/graficoTrilogias")
+            .then(function (resposta) {
+
+                resposta.json().then(function (dados) {
+
+                    var labels = [];
+                    var valores = [];
+
+                    for (var i = 0; i < dados.length; i++) {
+
+                        labels.push(
+                            dados[i].trilogia_favorita
+                        );
+
+                        valores.push(
+                            dados[i].votos
+                        );
+
+                    }
+
+                    if (graficoTrilogias) {
+
+                        graficoTrilogias.destroy();
+
+                    }
+
+                    graficoTrilogias = new Chart(graficoTrilogiasCanvas, {
+
+                        type: 'pie',
+
+                        data: {
+
+                            labels: labels,
+
+                            datasets: [{
+                                label: 'Quantidade de votos',
+                                data: valores
+                            }]
+
+                        },
+
+                        options: {
+
+                            responsive: true,
+
+                            plugins: {
+
+                                legend: {
+                                    labels: {
+                                        color: 'white'
+                                    }
+                                }
+
+                            }
+
+                        }
+
+                    });
+
+                });
+
+            });
+
+    }
+
+    /* =========================
+        TABELA
+    ========================= */
+
+    function buscarUltimosAcessos() {
+
+        fetch("/dashboard/ultimosAcessos")
+            .then(function (resposta) {
+
+                resposta.json().then(function (dados) {
+
+                    tbody_ultimos.innerHTML = "";
+
+                    for (var i = 0; i < dados.length; i++) {
+
+                        tbody_ultimos.innerHTML += `
+
+                            <tr>
+
+                                <td>${dados[i].usuario}</td>
+
+                                <td>${dados[i].faccao_favorita}</td>
+
+                                <td>${dados[i].personagem}</td>
+
+                                <td>${dados[i].filme_favorito}</td>
+
+                            </tr>
+
+                        `;
+
+                    }
+
+                });
+
+            });
+
+    }
+
+</script>
+
 
 </body>
 </html>

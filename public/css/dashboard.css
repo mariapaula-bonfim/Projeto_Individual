@@ -9,9 +9,11 @@
 body{
     background-color: #050505;
 
+    color: white;
+
     display: flex;
 
-    color: white;
+    min-height: 100vh;
 }
 
 /* SIDEBAR */
@@ -27,6 +29,7 @@ body{
     padding: 40px 25px;
 
     position: fixed;
+
     left: 0;
     top: 0;
 }
@@ -60,7 +63,7 @@ body{
 
     padding: 14px 18px;
 
-    border-radius: 8px;
+    border-radius: 10px;
 
     transition: 0.3s;
 }
@@ -80,17 +83,17 @@ body{
 
     width: calc(100% - 260px);
 
-    padding: 50px;
+    padding: 40px;
 }
 
 /* TOPO */
 
 .topo-dashboard{
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
 
-    margin-bottom: 50px;
+    margin-bottom: 40px;
 }
 
 .topo-dashboard h1{
@@ -110,48 +113,46 @@ body{
 .usuario-dashboard{
     background-color: #111;
 
-    padding: 15px 22px;
-
-    border-radius: 10px;
-
     border: 1px solid rgba(255,255,255,0.05);
+
+    padding: 15px 20px;
+
+    border-radius: 12px;
 }
 
-/* CARDS */
+/* CARDS KPI */
 
 .cards-dashboard{
     display: grid;
 
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 
     gap: 25px;
 
-    margin-bottom: 50px;
+    margin-bottom: 40px;
 }
-
-/* CARD */
 
 .card-dashboard{
     background-color: #111;
 
-    padding: 30px;
-
-    border-radius: 12px;
-
     border: 1px solid rgba(255,255,255,0.05);
 
-    transition: 0.4s;
+    border-radius: 14px;
+
+    padding: 30px;
+
+    transition: 0.3s;
 }
 
 .card-dashboard:hover{
-    transform: translateY(-8px);
+    transform: translateY(-6px);
 
     border-color: #ffcc00;
 
     box-shadow: 0 0 20px rgba(255, 204, 0, 0.12);
 }
 
-.card-dashboard h2{
+.card-dashboard h3{
     color: #d1d1d1;
 
     font-size: 18px;
@@ -160,7 +161,7 @@ body{
 }
 
 .card-dashboard span{
-    font-size: 42px;
+    font-size: 38px;
 
     font-weight: bold;
 
@@ -176,38 +177,32 @@ body{
 
     gap: 25px;
 
-    margin-bottom: 50px;
+    margin-bottom: 40px;
 }
 
 .grafico-box{
     background-color: #111;
 
-    border-radius: 12px;
-
-    padding: 30px;
-
     border: 1px solid rgba(255,255,255,0.05);
+
+    border-radius: 14px;
+
+    padding: 25px;
+
+    min-height: 420px;
 }
 
 .grafico-box h2{
-    margin-bottom: 25px;
+    margin-bottom: 20px;
+
+    color: #ffcc00;
 }
 
-/* FAKE GRÁFICO */
+/* CANVAS */
 
-.grafico-fake{
-    width: 100%;
-    height: 300px;
-
-    border-radius: 10px;
-
-    background: linear-gradient(
-        135deg,
-        rgba(255,204,0,0.15),
-        rgba(255,255,255,0.03)
-    );
-
-    border: 1px dashed rgba(255,204,0,0.4);
+canvas{
+    width: 100% !important;
+    height: 320px !important;
 }
 
 /* TABELA */
@@ -215,15 +210,17 @@ body{
 .atividade-recente{
     background-color: #111;
 
-    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.05);
+
+    border-radius: 14px;
 
     padding: 30px;
-
-    border: 1px solid rgba(255,255,255,0.05);
 }
 
 .atividade-recente h2{
     margin-bottom: 25px;
+
+    color: #ffcc00;
 }
 
 /* TABLE */
@@ -234,18 +231,28 @@ table{
     border-collapse: collapse;
 }
 
+thead{
+    background-color: rgba(255,255,255,0.02);
+}
+
 th{
     text-align: left;
 
-    padding-bottom: 20px;
+    padding: 18px;
 
     color: #ffcc00;
+
+    font-size: 15px;
 }
 
 td{
-    padding: 18px 0;
+    padding: 18px;
 
     border-top: 1px solid rgba(255,255,255,0.05);
 
     color: #d1d1d1;
+}
+
+tr:hover{
+    background-color: rgba(255,255,255,0.02);
 }
