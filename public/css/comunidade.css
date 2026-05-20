@@ -199,3 +199,32 @@ body{
 .card-comunidade a:hover{
     background-color: white;
 }
+
+.footer{
+    width: 100%;
+    background-color: #000;
+}
+
+/* ===== CONTAINER ===== */
+
+.footer-container{
+    width: 100%;
+    height: 100px;
+
+    background: linear-gradient(to right, #1f1f1f, #2a2a2a);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ===== TEXTO ===== */
+
+.footer-container h1{
+    color: white;
+
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+
+    letter-spacing: 2px;
+}

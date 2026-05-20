@@ -14,7 +14,7 @@ var app = express();
 
 var usuarioRouter = require("./src/routes/usuarios");
 var questionarioRouter = require("./src/routes/questionario");
-var dashboardRouter = require('./routes/dashboard');
+var dashboardRouter = require('./src/routes/dashboard');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
