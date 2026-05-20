@@ -123,12 +123,12 @@
                     <div class="radio-group">
 
                         <label>
-                            <input type="radio" name="lado">
+                            <input type="radio" name="lado" value="Luz">
                             Lado luminoso
                         </label>
 
                         <label>
-                            <input type="radio" name="lado">
+                            <input type="radio" name="lado" value="Escuro">
                             Lado sombrio
                         </label>
 
@@ -162,51 +162,50 @@
 
     </div>
 
-</body>
-
-</html>
-
 <script>
 
     function responder() {
 
-    var faccaoVar = select_faccao.value;
+    var faccaoVar    = select_faccao.value;
     var personagemVar = select_personagem.value;
-    var trilogiaVar = select_trilogia.value;
-    var filmeVar = select_filme.value;
+    var trilogiaVar  = select_trilogia.value;
+    var filmeVar     = select_filme.value;
     var quantidadeVar = ipt_quantidade.value;
+    var elementoVar  = select_elemento.value;
+
+    // captura o radio de lado (que não tinha id antes)
+    var ladoSelecionado = document.querySelector('input[name="lado"]:checked');
+    var ladoVar = ladoSelecionado ? ladoSelecionado.value : "";
 
     var idUsuarioVar = sessionStorage.ID_USUARIO;
 
     fetch("/questionario/cadastrar", {
         method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-            faccaoServer: faccaoVar,
+            faccaoServer:     faccaoVar,
             personagemServer: personagemVar,
-            trilogiaServer: trilogiaVar,
-            filmeServer: filmeVar,
+            trilogiaServer:   trilogiaVar,
+            filmeServer:      filmeVar,
             quantidadeServer: quantidadeVar,
-            idUsuarioServer: idUsuarioVar
+            ladoServer:       ladoVar,       // novo
+            elementoServer:   elementoVar,   // novo
+            idUsuarioServer:  idUsuarioVar
         })
     })
-    .then(function(resposta){
-
-        if(resposta.ok){
-
+    .then(function(resposta) {
+        if (resposta.ok) {
             alert("Pesquisa enviada com sucesso!");
             window.location = "dashboard.html";
         } else {
             alert("Erro ao enviar pesquisa");
         }
-
     })
-
-    .catch(function(erro){
+    .catch(function(erro) {
         console.log(erro);
     });
-
 }
+
 </script>
+</body>
+</html>
